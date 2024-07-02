@@ -1,27 +1,29 @@
 <?php
-namespace config;
+namespace App\Config;
 
-require_once __DIR__ . "/vendor/autoload.php";
+require_once __DIR__ . '\..\..\vendor\autoload.php';
 
 use \PDO;
 use \PDOException;
 
-class Database {
-    private $host = "localhost";
-    private $db_name = "todolist_db";
-    private $username = "root";
-    private $password = "";
-    public $conn;
+class Database 
+{
+    private static $host = "localhost";
+    private static $db_name = "to_do_list";
+    private static $username = "root";
+    private static $password = "";
+    public static $conn;
 
-    public function getConnection() {
-        $this->conn = null;
+    public static function getConnection() 
+    {
+        self::$conn = null;
         try {
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-            $this->conn->exec("set names utf8");
+            self::$conn = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$db_name, self::$username, self::$password);
+            self::$conn->exec("set names utf8");
         } catch(PDOException $exception) {
             echo "Connection error: " . $exception->getMessage();
         }
-        return $this->conn;
+        return self::$conn;
     }
 }
 
