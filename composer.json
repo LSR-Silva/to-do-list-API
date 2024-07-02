@@ -3,8 +3,15 @@
     "description": "To do List\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[D\u001b[D\u001b[D\u001b[F\u001b[C\u001b[C\u001b[C\u001b[B\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[D\u001b[D\u001b[CAPI",
     "autoload": {
         "psr-4": {
-            "Luckas\\Backend\\": "src/"
+            "App\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "slim/slim": "^4.14",
+        "slim/psr7": "^1.7"
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public"
+    }
 }
