@@ -13,8 +13,8 @@ Tasks_model
 
 Banco de Dados:
 
-Tabela: Tasks(
-    id INTEGER PRIMARY KEY AUTO_INCREMENT,    // Identificador de cada registro.
-    description VARCHAR(100) NOT NULL,        // Nome da tarefa.
-    completed VARCHAR(1) DEFAULT "T"          // Campo de verificação, se a tarefa já foi realizada ou não.
-)
+Tabela: Tasks
+Campos:
+    - id INTEGER PRIMARY KEY AUTO_INCREMENT,    // Identificador de cada registro.
+    - description VARCHAR(100) NOT NULL,        // Nome da tarefa.
+    - completed VARCHAR(1) DEFAULT "T"          // Campo de verificação, se a tarefa já foi realizada ou não.
