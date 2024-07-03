@@ -41,24 +41,6 @@ class Tasks_model
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    public static function update_task_description($data) 
-    {
-        $query = "UPDATE tasks 
-                SET description = :DESCRIPTION
-                WHERE id = :ID";
-
-        $stmt = self::$conn->prepare($query);
-
-        $stmt->bindParam(":ID", $data['id']);
-        $stmt->bindParam(":DESCRIPTION", $data['description']);
-
-        if ($stmt->execute()) {
-            return true;
-        }
-
-        return false;
-    }
 
     public static function update_task_progress($data) 
     {
@@ -69,6 +51,7 @@ class Tasks_model
         $stmt = self::$conn->prepare($query);
 
         $stmt->bindParam(":COMPLETED", $data['completed']);
+        $stmt->bindParam(":ID", $data['id']);
 
         if ($stmt->execute()) {
             return true;
