@@ -12,6 +12,7 @@ $app->get('/', TasksController::class . ':list');
 // POST METHODS
 $app->post('/create', TasksController::class . ':create');
 $app->post('/progress', TasksController::class . ':update_task_progress');
+$app->post('/delete', TasksController::class . ':delete');
 
 $app->run();
 

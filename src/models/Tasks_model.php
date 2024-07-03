@@ -60,14 +60,13 @@ class Tasks_model
         return false;
     }
 
-    public static function delete($id) 
+    public static function delete($data) 
     {
         $query = "DELETE FROM tasks 
                 WHERE id = :ID";
 
         $stmt = self::$conn->prepare($query);
-        $stmt->bindParam(":ID", $id);
-        
+        $stmt->bindParam(":ID", $data['id']);
 
         if ($stmt->execute()) {
             return true;

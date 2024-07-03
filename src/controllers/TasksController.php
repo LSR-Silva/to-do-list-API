@@ -26,7 +26,7 @@ class TasksController
     return $response->withHeader('Content-Type', 'application/json');
   }
 
-  public function list(Request $request, Response $response): Response
+  public function list(Request $request, Response $response, array $args): Response
   {
     $data = $this->tasks_model->list();
     $response->getBody()->write(json_encode($data));
@@ -43,9 +43,13 @@ class TasksController
     return $response->withHeader('Content-Type', 'application/json');
   }
 
-  public function delete($id)
+  public function delete(Request $request, Response $response, array $args): Response
   {
-      
+    $data = $request->getParsedBody();
+
+    $response->getBody()->write(json_encode($this->tasks_model->delete($data)));
+
+    return $response->withHeader('Content-Type', 'application/json');
   }
 }
 ?>
